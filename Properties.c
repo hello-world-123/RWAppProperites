@@ -265,9 +265,10 @@ int add(void *handle, const char *key, const char *value)
     }
     
     strcpy(pMalloc->key, key);
-    if (strchr(pCurrent->value,'\n') == NULL) {
-        strcat(pCurrent->value, "\n");
-    }
+    if(pCurrent->value != NULL)
+        if (strchr(pCurrent->value,'\n') == NULL) {
+         strcat(pCurrent->value, "\n");
+         }
     strcpy(pMalloc->value, value);
     if (strchr(value, '\n') == NULL) {  // 加一个换行符
         strcat(pMalloc->value, "\n");
